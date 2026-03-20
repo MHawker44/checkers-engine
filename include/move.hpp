@@ -1,11 +1,21 @@
 #ifndef MOVE_HPP
 #define MOVE_HPP
+#include <vector>
 
-struct Move {
-    int from_row;
-    int from_col;
-    int to_row;
-    int to_col;
+struct SimpleMove {
+    int from;
+    int to;
+};
+
+struct CaptureMove {
+    int from;
+    int to;
+    int captured;
+};
+
+struct CaptureStep {
+    int captured;
+    int landing;
 };
 
 #endif
