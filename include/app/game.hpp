@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "board.hpp"
+#include "core/board.hpp"
 
 class Game {
 public:

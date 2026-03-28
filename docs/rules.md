@@ -26,8 +26,8 @@
 - A legal move must move a piece belonging to the side to move.
 - After a complete legal move sequence, the side to move flips.
 
-- White's promotion squares are 0 - 3
-- Black's promotion squares are 29 - 32
+- White's promotion squares are `0..3`
+- Black's promotion squares are `28..31`
 
 ## Move legality rules
 
@@ -38,6 +38,7 @@
 - A simple move is illegal if any capture is available for the side to move.
 - After a capture, if another capture is available from the landing square, the sequence must continue.
 - A man that ends its move on the promotion rank becomes a king.
+- Promotion ends the move immediately.
 
 ## Bit representation
 

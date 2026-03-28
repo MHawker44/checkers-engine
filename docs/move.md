@@ -4,32 +4,30 @@
 
 This document assumes the board orientation and delta table defined in:
 
-- `docs/board_model.md`
+- `docs/invariants.md`
 
 Do not duplicate or redefine orientation rules here.
 
 ## Layering
 
-### Primitive directional queries
+### Geometry helpers
 
-- `validSimpleLeftMoveAtIndex(index)`
-- `validSimpleRightMoveAtIndex(index)`
-- `validCaptureLeftMoveAtIndex(index)`
-- `validCaptureRightMoveAtIndex(index)`
+- `getLeftStepIndex(index, side)`
+- `getRightStepIndex(index, side)`
 
 These use:
 
-- side_to_move
+- side orientation
 - row parity
 - offset edge conditions
-- delta table from `board_model.md`
+- delta table from `docs/invariants.md`
 
 ### Source-level generation
 
 - `getSimpleMovesFromIndex(index)`
 - `getCaptureMovesFromIndex(index)`
 
-These convert primitive destination results into `Move` objects.
+These build complete `Move` objects for one source square.
 
 ### Side-level generation
 
@@ -37,6 +35,18 @@ These convert primitive destination results into `Move` objects.
 - `getCaptureMoves()`
 
 These iterate over all pieces for `side_to_move`.
+
+### Multi-jump capture generation
+
+- `generateCapturesRecursive(...)`
+
+This extends a partial capture path until no further legal jump exists.
+
+For capture sequences:
+
+- `Move::path` stores the visited landing squares in order, including source and final destination
+- `Move::captured` stores captured square indices in jump order
+- promotion ends the move immediately
 
 ### Legal move generation
 

@@ -1,10 +1,13 @@
 # Board Model
 
+Note: canonical board-state and move-semantics documentation now lives in `docs/invariants.md`.
+This file is kept as a geometry-oriented reference.
+
 ## Purpose
 
-This document defines the board representation used by the engine.
+This document defines the board geometry used by the engine.
 
-It is the source of truth for:
+It is a reference for:
 
 - square indexing
 - board orientation
@@ -12,7 +15,7 @@ It is the source of truth for:
 - row parity
 - playable-square mapping
 
-All move-generation code must agree with this document.
+The full source of truth for engine invariants and move representation is `docs/invariants.md`.
 
 ---
 
